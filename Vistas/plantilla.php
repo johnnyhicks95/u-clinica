@@ -49,7 +49,7 @@ session_start();
 
 
   <?php
-
+//_SESSION: variable de sesion
   if(isset($_SESSION["Ingresar"]) && $_SESSION["Ingresar"] == true){
 
     echo '<div class="wrapper">';

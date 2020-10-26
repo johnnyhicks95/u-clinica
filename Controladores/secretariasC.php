@@ -52,7 +52,7 @@ class SecretariasC{
 
 		$tablaBD = "secretarias";
 
-		$id = $_SESSION["id"];
+		$id = $_SESSION["id"];  // variable de sesion
 
 		$resultado = SecretariasM::VerPerfilSecretariaM($tablaBD, $id);
 
@@ -68,11 +68,11 @@ class SecretariasC{
 
 				if($resultado["foto"] != ""){
 
-					echo '<td><img src="http://localhost/clinica/'.$resultado["foto"].'" class="img-responsive" width="40px"></td>';
+					echo '<td><img src="http://localhost:8080/u-clinica/'.$resultado["foto"].'" class="img-responsive" width="40px"></td>';
 
 				}else{
 
-					echo '<td><img src="http://localhost/clinica/Vistas/img/defecto.png" class="img-responsive" width="40px"></td>';
+					echo '<td><img src="http://localhost:8080/u-clinica/Vistas/img/defecto.png" class="img-responsive" width="40px"></td>';
 
 				}
 
@@ -80,7 +80,7 @@ class SecretariasC{
 
 				echo '<td>
 						
-					<a href="http://localhost/clinica/perfil-S/'.$resultado["id"].'">
+					<a href="http://localhost:8080/u-clinica/perfil-S/'.$resultado["id"].'">
 						
 						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
 
@@ -104,7 +104,8 @@ class SecretariasC{
 		$id = $_SESSION["id"];
 
 		$resultado = SecretariasM::VerPerfilSecretariaM($tablaBD, $id);
-
+		
+		// name: nombrePerfil
 		echo '<form method="post" enctype="multipart/form-data">
 					
 				<div class="row">
@@ -135,11 +136,11 @@ class SecretariasC{
 
 						if($resultado["foto"] == ""){
 
-							echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" width="200px;">';
+							echo '<img src="http://localhost:8080/u-clinica/Vistas/img/defecto.png" width="200px;">';
 
 						}else{
 
-							echo '<img src="http://localhost/clinica/'.$resultado["foto"].'" width="200px;">';
+							echo '<img src="http://localhost:8080/u-clinica/'.$resultado["foto"].'" width="200px;">';
 
 						}
 
@@ -164,24 +165,25 @@ class SecretariasC{
 	//Actualizar Perfil Secretaria
 	public function ActualizarPerfilSecretariaC(){
 
-		if(isset($_POST["idP"])){
+		if(isset($_POST["idP"])){  // si viene informacion del idPerfil
 
 			$rutaImg = $_POST["imgActual"];
 
+			// _Files: archivos
 			if(isset($_FILES["imgP"]["tmp_name"]) && !empty($_FILES["imgP"]["tmp_name"])){
 
 				if(!empty($_POST["imgActual"])){
 
-					unlink($_POST["imgActual"]);
+					unlink($_POST["imgActual"]);  // elimina la imagen
 
 				}
 
 
-				if($_FILES["imgP"]["type"] == "image/jpeg"){
+				if($_FILES["imgP"]["type"] == "image/jpeg"){  // cuando la imagen es tipo jpeg
 
 					$nombre = mt_rand(10,99);
 
-					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".jpg";
+					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".jpg";  // el nombre empezara con: S
 
 					$foto = imagecreatefromjpeg($_FILES["imgP"]["tmp_name"]);
 
@@ -189,7 +191,7 @@ class SecretariasC{
 
 				}
 
-				if($_FILES["imgP"]["type"] == "image/png"){
+				if($_FILES["imgP"]["type"] == "image/png"){ // imagen tipo png
 
 					$nombre = mt_rand(10,99);
 
@@ -214,7 +216,7 @@ class SecretariasC{
 
 				echo '<script>
 
-				window.location = "http://localhost/clinica/perfil-S/'.$_SESSION["id"].'";
+				window.location = "http://localhost:8080/u-clinica/perfil-S/'.$_SESSION["id"].'";
 				</script>';
 
 			}

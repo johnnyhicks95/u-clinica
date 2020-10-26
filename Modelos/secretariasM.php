@@ -64,7 +64,7 @@ class SecretariasM extends ConexionBD{
 		}
 
 		$pdo -> close();
-		$pdo = null;
+		$pdo = null;  // vacia la conexion
 
 	}
 

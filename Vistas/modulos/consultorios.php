@@ -1,6 +1,5 @@
 <?php
 
-// si el rol es secretaria o administrador redirecciona a inicio
 if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 	echo '<script>
@@ -32,7 +31,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 				<form method="post">
 					
 					<div class="col-md-6 col-xs-12">
-						<!-- name="consultorioNuevo" -->
 						<input type="text" class="form-control" name="consultorioN" placeholder="Ingrese Nuevo Consultorio" required>
 					</div>
 

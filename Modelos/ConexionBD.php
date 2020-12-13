@@ -4,7 +4,7 @@ class ConexionBD{
 
 	public function cBD(){
 
-		$bd = new PDO("mysql:host=localhost;dbname=clinica", "root", "AdamJones2012");
+		$bd = new PDO("mysql:host=localhost:3305;dbname=clinica", "", "");
 
 		$bd -> exec("set names utf8");
 

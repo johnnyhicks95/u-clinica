@@ -172,7 +172,7 @@ class PacientesC{
 
 				<td>
 					
-					<a href="http://localhost:8080/u-clinica/perfil-P/'.$resultado["id"].'">
+					<a href="http://localhost/u-clinica/perfil-P/'.$resultado["id"].'">
 						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
 					</a>
 
@@ -226,11 +226,11 @@ class PacientesC{
 
 							if($resultado["foto"] != ""){
 
-								echo '<img src="http://localhost:8080/u-clinica/'.$resultado["foto"].'" width="200px" class="img-responsive">';
+								echo '<img src="http://localhost/u-clinica/'.$resultado["foto"].'" width="200px" class="img-responsive">';
 
 							}else {
 
-								echo '<img src="http://localhost:8080/u-clinica/Vistas/img/defecto.png" width="200px" class="img-responsive">';
+								echo '<img src="http://localhost/u-clinica/Vistas/img/defecto.png" width="200px" class="img-responsive">';
 
 							}
 
@@ -305,7 +305,7 @@ class PacientesC{
 
 				echo '<script>
 
-				window.location = "http://localhost:8080/u-clinica/perfil-P/'.$_SESSION["id"].'";
+				window.location = "http://localhost/u-clinica/perfil-P/'.$_SESSION["id"].'";
 				</script>';
 
 			}

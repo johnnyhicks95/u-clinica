@@ -17,7 +17,7 @@ class ConsultoriosC{
 
 				echo '<script>
 
-				window.location = "http://localhost:8080/u-clinica/consultorios";
+				window.location = "http://localhost/u-clinica/consultorios";
 				</script>';
 
 			}
@@ -56,7 +56,7 @@ class ConsultoriosC{
 
 				echo '<script>
 
-				window.location = "http://localhost:8080/u-clinica/consultorios";
+				window.location = "http://localhost/u-clinica/consultorios";
 				</script>';
 
 			}
@@ -110,7 +110,7 @@ class ConsultoriosC{
 
 				echo '<script>
 
-				window.location = "http://localhost:8080/u-clinica/consultorios";
+				window.location = "http://localhost/u-clinica/consultorios";
 				</script>';
 
 			}

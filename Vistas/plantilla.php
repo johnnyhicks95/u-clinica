@@ -181,7 +181,8 @@ session_start();
         m    = date.getMonth(),
         y    = date.getFullYear()
     $('#calendar').fullCalendar({
-      
+      // oculta los dias segun el arreglo, empieza 0 en domingo
+      // 1 lunes, 2 martes, etc
       hiddenDays: [0,6], 
 
       defaultView: 'agendaWeek',

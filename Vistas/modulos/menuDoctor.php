@@ -12,22 +12,19 @@
         </li>
 
         <li>
-          <a href="http://localhost/u-clinica/doctores">
-            <i class="fa fa-user-md"></i>
-            <span>Doctores</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="http://localhost/u-clinica/consultorios">
+          <?php
+          echo '<a href="http://localhost/u-clinica/Citas/'.$_SESSION["id"].'">';
+          ?>
+          
             <i class="fa fa-medkit"></i>
-            <span>Consultorios</span>
+            <span>Citas</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost/u-clinica/pacientes">
-            <i class="fa fa-users"></i>
+       
+       <a href="http://localhost/u-clinica/pacientes">
+            <i class="fa fa-calendar-check-o"></i>
             <span>Pacientes</span>
           </a>
         </li>

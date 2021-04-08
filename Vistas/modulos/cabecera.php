@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="http://localhost:8080/u-clinica/inicio" class="logo">
+    <a href="http://localhost/u-clinica/inicio" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C M</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -26,11 +26,11 @@
 
               if($_SESSION["foto"] == ""){
 
-                echo '<img src="http://localhost:8080/u-clinica/Vistas/img/defecto.png" class="user-image" alt="User Image">';
+                echo '<img src="http://localhost/u-clinica/Vistas/img/defecto.png" class="user-image" alt="User Image">';
 
               }else{
 
-                echo '<img src="http://localhost:8080/u-clinica/'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
+                echo '<img src="http://localhost/u-clinica/'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
 
               }
 
@@ -48,7 +48,7 @@
 
                   <?php
 
-                  echo '<a href="http://localhost:8080/u-clinica/perfil-'.$_SESSION["rol"].'" class="btn btn-primary btn-flat">Perfil</a>';
+                  echo '<a href="http://localhost/u-clinica/perfil-'.$_SESSION["rol"].'" class="btn btn-primary btn-flat">Perfil</a>';
 
                   ?>
                   
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="pull-right">
-                  <a href="http://localhost:8080/u-clinica/salir" class="btn btn-danger btn-flat">Salir</a>
+                  <a href="http://localhost/u-clinica/salir" class="btn btn-danger btn-flat">Salir</a>
                 </div>
               </li>
             </ul>

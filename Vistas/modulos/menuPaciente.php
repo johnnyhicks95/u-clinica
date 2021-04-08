@@ -5,14 +5,14 @@
       <ul class="sidebar-menu">
         
         <li>
-          <a href="http://localhost:8080/u-clinica/inicio">
+          <a href="http://localhost/u-clinica/u-clinica/inicio">
             <i class="fa fa-home"></i>
             <span>Inicio</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost:8080/u-clinica/Ver-consultorios">
+          <a href="http://localhost/u-clinica/u-clinica/Ver-consultorios">
             <i class="fa fa-medkit"></i>
             <span>Consultorios</span>
           </a>
@@ -20,7 +20,7 @@
 
         <li>
         <?php
-        echo '  <a href="http://localhost:8080/u-clinica/historial/'.$_SESSION["id"].'">';
+        echo '  <a href="http://localhost/u-clinica/u-clinica/historial/'.$_SESSION["id"].'">';
         ?>
             <i class="fa fa-calendar-check-o"></i>
             <span>Historial</span>

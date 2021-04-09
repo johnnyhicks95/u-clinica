@@ -64,11 +64,77 @@ class SecretariasM extends ConexionBD{
 		}
 
 		$pdo -> close();
-		$pdo = null;  // vacia la conexion
+		$pdo = null;
 
 	}
 
 
+
+	//Mostrar Secretarias
+	static public function VerSecretariasM($tablaBD){
+
+		$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ORDER BY apellido ASC");
+
+		$pdo -> execute();
+
+		return $pdo -> fetchAll();
+
+		$pdo -> close();
+		$pdo = null;
+
+	}
+
+
+
+	//Crear Secretarias
+	static public function CrearSecretariaM($tablaBD, $datosC){
+
+		$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD (nombre, apellido, usuario, clave, rol) VALUES (:nombre, :apellido, :usuario, :clave, :rol)");
+
+		$pdo -> bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
+		$pdo -> bindParam(":apellido", $datosC["apellido"], PDO::PARAM_STR);
+		$pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
+		$pdo -> bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
+		$pdo -> bindParam(":rol", $datosC["rol"], PDO::PARAM_STR);
+
+		if($pdo -> execute()){
+
+			return true;
+
+		}else{
+
+			return false;
+
+		}
+
+		$pdo -> close();
+		$pdo = null;
+
+	}
+
+
+
+	//Borrar Secretarias
+	static public function BorrarSecretariaM($tablaBD, $id){
+
+		$pdo = ConexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
+
+		$pdo -> bindParam(":id", $id, PDO::PARAM_INT);
+
+		if($pdo -> execute()){
+
+			return true;
+
+		}else{
+
+			return false;
+
+		}
+
+		$pdo -> close();
+		$pdo = null;
+
+	}
 
 
 }

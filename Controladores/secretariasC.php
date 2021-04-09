@@ -5,8 +5,7 @@ class SecretariasC{
 	//Ingreso Secretarias
 	public function IngresarSecretariaC(){
 
-		// de ingreso-=Secretaria.php
-		if(isset($_POST["usuario-Ing"])){  // POST: metodo de envío; usuario ing: tipo de <input name="usuario-Ing" >
+		if(isset($_POST["usuario-Ing"])){
 
 			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["usuario-Ing"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["clave-Ing"])){
 
@@ -52,7 +51,7 @@ class SecretariasC{
 
 		$tablaBD = "secretarias";
 
-		$id = $_SESSION["id"];  // variable de sesion
+		$id = $_SESSION["id"];
 
 		$resultado = SecretariasM::VerPerfilSecretariaM($tablaBD, $id);
 
@@ -104,8 +103,7 @@ class SecretariasC{
 		$id = $_SESSION["id"];
 
 		$resultado = SecretariasM::VerPerfilSecretariaM($tablaBD, $id);
-		
-		// name: nombrePerfil
+
 		echo '<form method="post" enctype="multipart/form-data">
 					
 				<div class="row">
@@ -165,25 +163,24 @@ class SecretariasC{
 	//Actualizar Perfil Secretaria
 	public function ActualizarPerfilSecretariaC(){
 
-		if(isset($_POST["idP"])){  // si viene informacion del idPerfil
+		if(isset($_POST["idP"])){
 
 			$rutaImg = $_POST["imgActual"];
 
-			// _Files: archivos
 			if(isset($_FILES["imgP"]["tmp_name"]) && !empty($_FILES["imgP"]["tmp_name"])){
 
 				if(!empty($_POST["imgActual"])){
 
-					unlink($_POST["imgActual"]);  // elimina la imagen
+					unlink($_POST["imgActual"]);
 
 				}
 
 
-				if($_FILES["imgP"]["type"] == "image/jpeg"){  // cuando la imagen es tipo jpeg
+				if($_FILES["imgP"]["type"] == "image/jpeg"){
 
 					$nombre = mt_rand(10,99);
 
-					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".jpg";  // el nombre empezara con: S
+					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".jpg";
 
 					$foto = imagecreatefromjpeg($_FILES["imgP"]["tmp_name"]);
 
@@ -191,7 +188,7 @@ class SecretariasC{
 
 				}
 
-				if($_FILES["imgP"]["type"] == "image/png"){ // imagen tipo png
+				if($_FILES["imgP"]["type"] == "image/png"){
 
 					$nombre = mt_rand(10,99);
 
@@ -226,6 +223,72 @@ class SecretariasC{
 	} 
 
 
-	
+	//Mostrar Secretarias
+	public function VerSecretariasC(){
+
+		$tablaBD = "secretarias";
+
+		$resultado = SecretariasM::VerSecretariasM($tablaBD);
+
+		return $resultado;
+
+	}
+
+
+	//Crear Secretarias
+	public function CrearSecretariaC(){
+
+		if(isset($_POST["rolS"])){
+
+			$tablaBD = "secretarias";
+
+			$datosC = array("nombre"=>$_POST["nombre"], "apellido"=>$_POST["apellido"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolS"]);
+
+			$resultado = SecretariasM::CrearSecretariaM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "secretarias";
+				</script>';
+
+			}
+
+		}
+
+	}
+
+
+
+	//Borrar Secretarias
+	public function BorrarSecretariaC(){
+
+		if(isset($_GET["Sid"])){
+
+			$tablaBD = "secretarias";
+
+			$id = $_GET["Sid"];
+
+			if($_GET["imgS"] != ""){
+
+				unlink($_GET["imgS"]);
+
+			}
+
+			$resultado = SecretariasM::BorrarSecretariaM($tablaBD, $id);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "secretarias";
+				</script>';
+
+			}
+
+		}
+
+	}
 
 }
